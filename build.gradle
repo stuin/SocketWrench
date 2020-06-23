@@ -8,24 +8,6 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	maven {
-		url = 'https://jitpack.io'
-	}
-	maven {
-		name = "Modmuss50"
-		url = "https://maven.modmuss50.me/"
-	}
-	maven {
-		name = "grondag"
-		url = "https://grondag-repo.appspot.com"
-		credentials {
-			username "guest"
-			password ""
-		}
-	}
-	maven {
-		url = 'http://server.bbkr.space:8081/artifactory/libs-release'
-	}
 }
 
 minecraft {
@@ -36,31 +18,6 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.minecraft_version}+${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-	//SonicDevices api
-	modImplementation project(':sonicdevicesapi')
-	include project(':sonicdevicesapi')
-
-	//Wrenchable api
-	def wrenchVersion = "com.github.Zundrel:Wrenchable:${project.wrenchable_version}"
-	modImplementation (wrenchVersion) {
-		exclude group: "io.github.prospector"
-		exclude group: "net.fabricmc"
-	}
-	include wrenchVersion
-
-	//RebornCore
-	modCompileOnly ("RebornCore:RebornCore-1.15:+") {
-		exclude group: "net.fabricmc"
-	}
-
-	//Simple Drawers
-	modCompileOnly ("com.github.benfah:SimpleDrawers:v${project.drawers_version}") {
-		exclude group: "net.fabricmc"
-	}
 }
 
 processResources {
