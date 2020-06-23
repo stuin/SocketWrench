@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "sonicdevicesapi",
-  "version": "1.0.1",
+  "version": "1.2.0",
 
   "name": "Sonic Devices API",
   "description": "API for integration with Sonic Devices",
@@ -18,7 +18,6 @@
   "environment": "*",
 
   "depends": {
-    "fabricloader": ">=0.4.8",
-    "fabric": "*"
+    "fabricloader": ">=0.8.8"
   }
 }
