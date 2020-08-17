@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "sonicdevicesapi",
-  "version": "1.2.0",
+  "version": "${version}",
 
   "name": "Sonic Devices API",
   "description": "API for integration with Sonic Devices",
