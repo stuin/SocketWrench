@@ -1,23 +1,37 @@
 {
   "schemaVersion": 1,
-  "id": "sonicdevicesapi",
+  "id": "socketwrench",
   "version": "${version}",
 
-  "name": "Sonic Devices API",
-  "description": "API for integration with Sonic Devices",
+  "name": "Socket Wrench",
+  "description": "Fabric Wrench API with a modular socket system",
   "authors": [
     "Stuin"
   ],
   "contact": {
     "homepage": "https://stuin.github.io/minecraft",
-    "sources": "https://github.com/stuin/SonicDevices"
+    "sources": "https://github.com/stuin/SocketWrench"
   },
 
   "license": "CC0-1.0",
+  "icon": "assets/socketwrench/icon.png",
 
   "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.stuintech.socketwrench.SocketWrench"
+    ]
+  },
+
+  "mixins": [
+    {
+      "environment": "*",
+      "config": "socketwrench.mixins.json"
+    }
+  ],
 
   "depends": {
-    "fabricloader": ">=0.8.8"
+    "fabricloader": ">=0.12.2",
+    "fabric": "*"
   }
 }
