@@ -11,8 +11,15 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
 public class BasicWrenchItem extends Item implements CancelBlockInteraction {
+    protected Identifier socketSetKey = SocketSetManager.WRENCH_MASTER_KEY;
+
     public BasicWrenchItem(Settings settings) {
         super(settings);
+    }
+
+    public BasicWrenchItem(Settings settings, Identifier socketSetKey) {
+        super(settings);
+        this.socketSetKey = socketSetKey;
     }
 
     @Override
@@ -48,6 +55,6 @@ public class BasicWrenchItem extends Item implements CancelBlockInteraction {
     }
 
     public Identifier getSocketSet(ItemStack stack) {
-        return SocketSetManager.WRENCH_MASTER_KEY;
+        return socketSetKey;
     }
 }

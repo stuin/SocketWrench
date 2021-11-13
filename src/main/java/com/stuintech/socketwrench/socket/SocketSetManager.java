@@ -16,16 +16,10 @@ import java.util.Map;
 public class SocketSetManager {
     private static final Map<Identifier, SocketSet> sets = new HashMap<>();
 
-    //Master set of basic wrench actions
+    //Builtin sets of basic wrench actions
     public static final Identifier WRENCH_MASTER_KEY = new Identifier(SocketWrench.MODID, "wrench");
-
-    //Subset for calling fastener interfaces
     public static final Identifier FASTENER_SET_KEY = new Identifier(SocketWrench.MODID, "fastener");
-
-    //Subset for custom wrench addons
     public static final Identifier ADDON_SET_KEY = new Identifier(SocketWrench.MODID, "addon");
-
-    //Subset for rotating blocks
     public static final Identifier ROTATE_SET_KEY = new Identifier(SocketWrench.MODID, "rotate");
 
     //Blank fallback subset
