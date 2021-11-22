@@ -22,9 +22,6 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.minecraft_version}+${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
 	// SocketWrench
 	modImplementation "com.stuintech:SocketWrench:${project.mod_version}+${project.minecraft_version}"
 	include "com.stuintech:SocketWrench:${project.mod_version}+${project.minecraft_version}"
