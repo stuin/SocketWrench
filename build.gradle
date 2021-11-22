@@ -11,6 +11,9 @@ version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
 
 repositories {
+	maven {
+		url "https://github.com/stuin/SocketWrench/raw/maven2"
+	}
 }
 
 dependencies {
@@ -21,6 +24,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// SocketWrench
+	modImplementation "com.stuintech:SocketWrench:${project.mod_version}+${project.minecraft_version}"
+	include "com.stuintech:SocketWrench:${project.mod_version}+${project.minecraft_version}"
 }
 
 processResources {

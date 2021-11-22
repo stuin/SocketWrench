@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "socketwrench",
+  "id": "socketwrenchitem",
   "version": "${version}",
 
-  "name": "Socket Wrench",
-  "description": "Fabric Wrench API with a modular socket system",
+  "name": "Socket Wrench Item",
+  "description": "Wrench Item attached to SocketWrench API",
   "authors": [
     "Stuin"
   ],
@@ -13,21 +13,15 @@
     "sources": "https://github.com/stuin/SocketWrench"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
+  "icon": "assets/socketwrenchitem/textures/item/wrench.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.stuintech.socketwrench.SocketWrench"
+      "com.stuintech.socketwrenchitem.SocketWrenchItem"
     ]
   },
-
-  "mixins": [
-    {
-      "environment": "*",
-      "config": "socketwrench.mixins.json"
-    }
-  ],
 
   "depends": {
     "fabricloader": ">=0.12.2",
