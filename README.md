@@ -11,10 +11,11 @@ repositories {
 
 dependencies {
     // SocketWrench
-	modImplementation "com.stuintech:SocketWrench:1.0.1+1.17.1"
-	include "com.stuintech:SocketWrench:1.0.1+1.17.1"
+	modImplementation "com.stuintech:SocketWrench:1.0.2+1.17.1"
+	include "com.stuintech:SocketWrench:1.0.2+1.17.1"
 }
 ```
+For 1.18, use version 1.1.0+1.18-pre6
 
 ### Sockets
 Every action on an entity or block is defined by a Socket object with onFasten, this should return true if an action was successfully performed or false to pass the action onto the next socket. CancelFasteningException can be thrown to prevent any action being run on the selected object.
