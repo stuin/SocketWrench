@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.9-SNAPSHOT'
+	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -22,6 +22,9 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.minecraft_version}+${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+	// Fabric API
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
 	// SocketWrench
 	modImplementation "com.stuintech:SocketWrench:${project.mod_version}+${project.minecraft_version}"
 	include "com.stuintech:SocketWrench:${project.mod_version}+${project.minecraft_version}"
@@ -35,9 +38,9 @@ processResources {
 	}
 }
 
-tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
-	options.release = 16
+tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = "UTF-8"
+	it.options.release = 17
 }
 
 java {
