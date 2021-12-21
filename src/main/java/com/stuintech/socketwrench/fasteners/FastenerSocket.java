@@ -25,4 +25,9 @@ public class FastenerSocket implements Socket {
             return ((FastenerBlock) block).onFasten(player, world, pos, hit, dir);
         return false;
     }
+
+    @Override
+    public boolean checksSneaking() {
+        return true;
+    }
 }

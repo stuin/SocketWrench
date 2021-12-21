@@ -20,6 +20,11 @@ public class ExtensionSocket extends Socket.BlockActionSocket {
 
     @Override
     public boolean onFasten(PlayerEntity player, World world, BlockPos pos, Vec3d hit, Direction dir) throws CancelFasteningException {
-        return socket.onFasten(player, world, pos.offset(dir.getOpposite()), hit, dir);
+        return (!player.isSneaking() || socket.checksSneaking()) && socket.onFasten(player, world, pos.offset(dir.getOpposite()), hit, dir);
+    }
+
+    @Override
+    public boolean checksSneaking() {
+        return true;
     }
 }

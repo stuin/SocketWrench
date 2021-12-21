@@ -33,17 +33,18 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity player, LivingEntity entity, Hand hand) {
+        //Try fastening entity
+        if(SocketSetManager.tryFasten(getSocketSet(stack), player, entity)) {
+            postFasten(stack, player);
+            return ActionResult.SUCCESS;
+        }
+
         //Cycle modes
         if(player.isSneaking()) {
             cycleModes(stack, player, 1);
             return ActionResult.SUCCESS;
         }
 
-        //Try fastening entity
-        if(SocketSetManager.tryFasten(getSocketSet(stack), player, entity)) {
-            postFasten(stack, player);
-            return ActionResult.SUCCESS;
-        }
         return ActionResult.FAIL;
     }
 
@@ -53,17 +54,18 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
         ItemStack stack = context.getStack();
         PlayerEntity player = context.getPlayer();
 
+        //Try fastening block
+        if(SocketSetManager.tryFasten(getSocketSet(stack), player, context.getWorld(), context.getBlockPos(), context.getHitPos(), context.getSide())) {
+            postFasten(stack, player);
+            return ActionResult.SUCCESS;
+        }
+
         //Cycle modes
         if(player != null && player.isSneaking()) {
             cycleModes(stack, player, 1);
             return ActionResult.SUCCESS;
         }
 
-        //Try fastening block
-        if(SocketSetManager.tryFasten(getSocketSet(stack), player, context.getWorld(), context.getBlockPos(), context.getHitPos(), context.getSide())) {
-            postFasten(stack, player);
-            return ActionResult.SUCCESS;
-        }
         return ActionResult.FAIL;
     }
 

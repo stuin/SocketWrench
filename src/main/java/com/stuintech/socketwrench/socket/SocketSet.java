@@ -23,7 +23,7 @@ public class SocketSet implements Socket {
     @Override
     public boolean onFasten(PlayerEntity player, LivingEntity entity) throws CancelFasteningException {
         for(Socket action : uses) {
-            if(action.onFasten(player, entity))
+            if((!player.isSneaking() || action.checksSneaking()) && action.onFasten(player, entity))
                 return true;
         }
         return false;
@@ -32,9 +32,14 @@ public class SocketSet implements Socket {
     @Override
     public boolean onFasten(PlayerEntity player, World world, BlockPos pos, Vec3d hit, Direction dir) throws CancelFasteningException {
         for(Socket action : uses) {
-            if(action.onFasten(player, world, pos, hit, dir))
+            if((!player.isSneaking() || action.checksSneaking()) && action.onFasten(player, world, pos, hit, dir))
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean checksSneaking() {
+        return true;
     }
 }
