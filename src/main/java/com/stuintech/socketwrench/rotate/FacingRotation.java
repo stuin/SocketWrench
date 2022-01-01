@@ -16,6 +16,10 @@ public class FacingRotation extends Socket.BlockActionSocket {
         BlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
 
+        //Skip when sneaking
+        if(player.isSneaking())
+            return false;
+
         //Cancel on op blocks
         if(block instanceof OperatorBlock && !player.isCreativeLevelTwoOp())
             throw new CancelFasteningException();

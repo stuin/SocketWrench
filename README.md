@@ -11,18 +11,19 @@ repositories {
 
 dependencies {
     // SocketWrench
-	modImplementation "com.stuintech:SocketWrench:1.0.2+1.17.1"
-	include "com.stuintech:SocketWrench:1.0.2+1.17.1"
+	modImplementation "com.stuintech:SocketWrench:1.3.0+1.18.1"
+	include "com.stuintech:SocketWrench:1.3.0+1.18.1"
 }
 ```
-For 1.18, use version 1.1.0+1.18-pre6
 
 ### Sockets
 Every action on an entity or block is defined by a Socket object with onFasten, this should return true if an action was successfully performed or false to pass the action onto the next socket. CancelFasteningException can be thrown to prevent any action being run on the selected object.
 
+For consistency, if the player is sneaking all Sockets should perform a less common action or do nothing.
+
 Sockets are organized into recursive SocketSets and can be connected to Identifiers in SocketSetManager, meaning that sockets and tools from separate mods can easily be connected together just using Identifiers.
 
-Sockets for rotating blocks are built into the Wrench system from the start, and support everything from chests, dispensers and observers, to doors, repeaters and torches. Slabs and stairs are also included, though rails are a WIP.
+Sockets for rotating blocks are built into the Wrench system from the start, and support everything from chests, dispensers and observers, to doors, rails, repeaters, and torches. Slabs and stairs are also included.
 
 * [Socket](https://github.com/stuin/SocketWrench/blob/master/src/main/java/com/stuintech/socketwrench/socket/Socket.java)
 * [SocketSet](https://github.com/stuin/SocketWrench/blob/master/src/main/java/com/stuintech/socketwrench/socket/SocketSet.java)
@@ -60,4 +61,8 @@ and included items can be used as examples or to simplify the process.
 
 More examples of tools and custom sockets can be found in [SonicDevices](https://github.com/stuin/SonicDevices/tree/master/src/main/java/com/stuintech/sonicdevices)
 
+### SocketWrenchItem
+As shown in the gradle example above, this api is designed to be easily included in mods, so it does not add an item and has no dependencies outside of Fabric.
 
+SocketWrenchItem, the jar file available for download on [Curseforge](https://www.curseforge.com/minecraft/mc-mods/socket-wrench), includes a craftable wrench item and a number of unstable compatibility features that require additional dependencies. 
+It may be updated more often and can have a higher version number than the api itself.

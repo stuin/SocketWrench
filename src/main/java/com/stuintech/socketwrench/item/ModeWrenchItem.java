@@ -16,8 +16,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ModeWrenchItem extends Item implements CancelBlockInteraction {
-    private final List<Identifier> modes;
     public static final String MODE = "currentMode";
+    public final List<Identifier> modes;
 
     public ModeWrenchItem(Settings settings, List<Identifier> modes) {
         super(settings);

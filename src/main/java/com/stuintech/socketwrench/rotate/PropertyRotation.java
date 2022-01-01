@@ -66,11 +66,6 @@ public class PropertyRotation extends Socket.BlockActionSocket {
         return false;
     }
 
-    @Override
-    public boolean checksSneaking() {
-        return true;
-    }
-
     public BlockState cycle(BlockState state, Property property) {
         if(property == Properties.HORIZONTAL_FACING)
             return state.with(property, horizontalOrder.get(state.get(property)));
@@ -86,12 +81,8 @@ public class PropertyRotation extends Socket.BlockActionSocket {
         facingProps.add(Properties.HORIZONTAL_AXIS);
         facingProps.add(Properties.HORIZONTAL_FACING);
         facingProps.add(Properties.HOPPER_FACING);
-        facingProps.add(Properties.STRAIGHT_RAIL_SHAPE);
         facingProps.add(Properties.ORIENTATION);
         facingProps.add(Properties.SLAB_TYPE);
-
-        //Should move to dedicated class
-        facingProps.add(Properties.RAIL_SHAPE);
         facingProps.add(Properties.ROTATION);
 
         //When sneaking

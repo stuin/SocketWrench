@@ -10,22 +10,15 @@ import net.minecraft.world.World;
 public interface Socket {
     boolean onFasten(PlayerEntity player, LivingEntity entity) throws CancelFasteningException;
     boolean onFasten(PlayerEntity player, World world, BlockPos pos, Vec3d hit, Direction dir) throws CancelFasteningException;
-    boolean checksSneaking();
 
     abstract class BlockActionSocket implements Socket {
         public boolean onFasten(PlayerEntity player, LivingEntity entity) {
-            return false;
-        }
-        public boolean checksSneaking() {
             return false;
         }
     }
 
     abstract class EntityActionSocket implements Socket {
         public boolean onFasten(PlayerEntity player, World world, BlockPos pos, Vec3d hit, Direction dir) {
-            return false;
-        }
-        public boolean checksSneaking() {
             return false;
         }
     }
