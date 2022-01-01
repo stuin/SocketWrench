@@ -3,14 +3,15 @@
   <groupId>com.stuintech</groupId>
   <artifactId>SocketWrench</artifactId>
   <versioning>
-    <release>1.2.0+1.18.1</release>
+    <release>1.3.0+1.18.1</release>
     <versions>
       <version>1.0.0+1.17.1</version>
       <version>1.0.1+1.17.1</version>
       <version>1.0.2+1.17.1</version>
       <version>1.1.0+1.18-pre6</version>
       <version>1.2.0+1.18.1</version>
+      <version>1.3.0+1.18.1</version>
     </versions>
-    <lastUpdated>20211221201615</lastUpdated>
+    <lastUpdated>20220101222420</lastUpdated>
   </versioning>
 </metadata>
