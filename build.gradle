@@ -14,6 +14,141 @@ repositories {
 	maven {
 		url "https://github.com/stuin/SocketWrench/raw/maven2"
 	}
+
+	//Industrial Revolution
+	maven {
+		name = "Cafeteria Development"
+		url = 'https://maven.cafeteria.dev/releases'
+	}
+	maven {
+		name = "BuildCraft"
+		url = "https://mod-buildcraft.com/maven"
+		content {
+			includeGroup "alexiil.mc.lib"
+		}
+	}
+	maven {
+		url = "https://jitpack.io"
+		content {
+			includeGroup "com.github.Technici4n"
+			includeGroup "com.github.Draylar"
+			includeGroup "com.github.Draylar.omega-config"
+			includeGroup "com.github.emilyploszaj"
+			includeGroup "com.github.KubeJS-Mods"
+			includeGroup "com.github.GabrielOlvH"
+			/* For Magna */
+			includeGroup "com.github.Draylar"
+			includeGroup "com.github.Draylar.omega-config"
+		}
+	}
+
+	// for KJS
+	maven {
+		url "https://www.cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+	// for ARRP
+	maven {
+		url = 'https://raw.githubusercontent.com/Devan-Kerman/Devan-Repo/master/'
+		content {
+			includeGroup "net.devtech"
+		}
+	}
+	// for Patchouli
+	maven {
+		url 'https://maven.blamejared.com'
+	}
+	// for WTHIT
+	maven {
+		url 'https://bai.jfrog.io/artifactory/maven'
+	}
+	// for AE2
+	maven {
+		name "Modmaven"
+		url "https://modmaven.dev"
+		content {
+			includeGroup "appeng"
+		}
+	}
+	maven {
+		url "https://maven.shedaniel.me"
+		content {
+			includeGroup "me.shedaniel.cloth.api"
+			includeGroup "me.sargunvohra.mcmods"
+			includeGroup "me.shedaniel.cloth"
+			includeGroup "me.shedaniel"
+			includeGroup "dev.architectury"
+		}
+	}
+	maven {
+		url "https://maven.terraformersmc.com"
+		content {
+			includeGroup "com.terraformersmc"
+		}
+	}
+	maven {
+		name 'Jitpack for MI'
+		url 'https://jitpack.io'
+		content {
+			includeGroup "com.github.KubeJS-Mods"
+			includeGroup "com.github.GabrielOlvH"
+			/* For Magna */
+			includeGroup "com.github.Draylar"
+			includeGroup "com.github.Draylar.omega-config"
+		}
+	}
+	// to build indrev
+	maven {
+		name = "CottonMC"
+		url = "https://server.bbkr.space/artifactory/libs-release"
+		content {
+			includeGroup "io.github.cottonmc"
+		}
+	}
+	maven {
+		name = "dblsaiko"
+		url = "https://maven.dblsaiko.net/"
+	}
+	maven {
+		name = "Technici4n"
+		url = "https://raw.githubusercontent.com/Technici4n/Technici4n-maven/master/"
+		content {
+			includeGroup "net.fabricmc.fabric-api"
+			includeGroup "dev.technici4n"
+			includeGroup "dev.latvian.mods"
+		}
+	}
+	maven {
+		url "https://maven.saps.dev/minecraft"
+		content {
+			includeGroup "dev.latvian.mods"
+			includeGroup "dev.ftb.mods"
+		}
+	}
+	// for reach entity attributes, required by Magna
+	maven {
+		url = "https://maven.jamieswhiteshirt.com/libs-release/"
+		content {
+			includeGroup "com.jamieswhiteshirt"
+		}
+	}
+	// for PlayerAbilityLib
+	maven {
+		name = 'Ladysnake Mods'
+		url = 'https://ladysnake.jfrog.io/artifactory/mods'
+		content {
+			includeGroup 'io.github.ladysnake'
+			includeGroupByRegex 'io\\.github\\.onyxstudios.*'
+		}
+	}
+	maven {
+		url "https://maven.parchmentmc.net/"
+		content {
+			includeGroup "org.parchmentmc.data"
+		}
+	}
 }
 
 dependencies {
@@ -28,6 +163,21 @@ dependencies {
 	// SocketWrench
 	modImplementation "com.stuintech:SocketWrench:${project.socketwrench_version}"
 	include "com.stuintech:SocketWrench:${project.socketwrench_version}"
+
+	// Industrial Revolution
+	modImplementation("me.steven:Industrial-Revolution:${project.indrev_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
+	// Applied Energistics 2
+	//modImplementation("appeng:appliedenergistics2-fabric:${project.appeng_version}") {
+	//        exclude(group: "net.fabricmc.fabric-api")
+	//    }
+
+	// Reborn Core
+	//modImplementation("RebornCore:RebornCore-1.18:${project.reborncore_version}") {
+	//        exclude(group: "net.fabricmc.fabric-api")
+	//    }
 }
 
 processResources {
