@@ -1,6 +1,7 @@
 package com.stuintech.socketwrenchitem;
 
 import com.stuintech.socketwrench.item.BasicWrenchItem;
+import com.stuintech.socketwrench.socket.SocketSetLoader;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -11,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 public class SocketWrenchItem implements ModInitializer {
     public static final String MODID = "socketwrenchitem";
-    public static final Logger LOGGER = LogManager.getLogger("SonicDevices");
+    public static final Logger LOGGER = LogManager.getLogger("SocketWrench");
 
     public static final Item.Settings SETTINGS = new Item.Settings().maxCount(1).group(ItemGroup.TOOLS);
     public static final BasicWrenchItem wrenchItem = new BasicWrenchItem(SETTINGS);
@@ -21,8 +22,24 @@ public class SocketWrenchItem implements ModInitializer {
             {
                     "Industrial Revolution",
                     "me.steven.indrev.blocks.machine.MachineBlock",
-                    "com.stuintech.sonicdevices.compat.IndustrialRevolution"
+                    "com.stuintech.socketwrenchitem.compat.IndustrialRevolution"
+            },
+            {
+                    "Reborn Core",
+                    "reborncore.api.IToolDrop",
+                    "com.stuintech.socketwrenchitem.compat.RebornCore"
+            },
+            {
+                    "Applied Energistics 2",
+                    "appeng.blockentity.AEBaseBlockEntity",
+                    "com.stuintech.socketwrenchitem.compat.AppliedEnergistics"
+            },
+            {
+                    "Modern Industrializaion",
+                    "aztech.modern_industrialization.api.WrenchableBlockEntity",
+                    "com.stuintech.socketwrenchitem.compat.ModernIndustrialization"
             }
+
     };
 
     @Override
@@ -33,10 +50,11 @@ public class SocketWrenchItem implements ModInitializer {
         for(String[] s : loadExtensions) {
             try {
                 Class.forName(s[1]);
-                ((ILoader) Class.forName(s[2]).newInstance()).onInitialize();
-                LOGGER.info(s[0] + " extension successfully initialized");
+                ((SocketSetLoader) Class.forName(s[2]).newInstance()).registerSockets();
+                LOGGER.info(s[0] + " socket successfully initialized");
             } catch (Exception e) {
-                LOGGER.debug(s[0] + "extension not found");
+                LOGGER.debug(s[0] + " socket not found");
+                LOGGER.debug(e);
             }
         }
     }

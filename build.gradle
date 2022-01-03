@@ -149,6 +149,7 @@ repositories {
 			includeGroup "org.parchmentmc.data"
 		}
 	}
+	mavenLocal()
 }
 
 dependencies {
@@ -164,20 +165,25 @@ dependencies {
 	modImplementation "com.stuintech:SocketWrench:${project.socketwrench_version}"
 	include "com.stuintech:SocketWrench:${project.socketwrench_version}"
 
+	// Applied Energistics 2
+	modImplementation("appeng:appliedenergistics2-fabric:${project.appeng_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
+	// Reborn Core
+	modImplementation("RebornCore:RebornCore-1.18:${project.reborncore_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
 	// Industrial Revolution
 	modImplementation("me.steven:Industrial-Revolution:${project.indrev_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
-	// Applied Energistics 2
-	//modImplementation("appeng:appliedenergistics2-fabric:${project.appeng_version}") {
-	//        exclude(group: "net.fabricmc.fabric-api")
-	//    }
-
-	// Reborn Core
-	//modImplementation("RebornCore:RebornCore-1.18:${project.reborncore_version}") {
-	//        exclude(group: "net.fabricmc.fabric-api")
-	//    }
+	// Modern Industrialization
+	modImplementation("aztech:Modern-Industrialization:${project.modernin_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 }
 
 processResources {
