@@ -39,14 +39,8 @@ repositories {
 			/* For Magna */
 			includeGroup "com.github.Draylar"
 			includeGroup "com.github.Draylar.omega-config"
-		}
-	}
-
-	// for KJS
-	maven {
-		url "https://www.cursemaven.com"
-		content {
-			includeGroup "curse.maven"
+			// for Immersive Portals
+			includeGroup "com.github.qouteall.ImmersivePortalsMod"
 		}
 	}
 	// for ARRP
@@ -83,44 +77,6 @@ repositories {
 		}
 	}
 	maven {
-		url "https://maven.terraformersmc.com"
-		content {
-			includeGroup "com.terraformersmc"
-		}
-	}
-	maven {
-		name 'Jitpack for MI'
-		url 'https://jitpack.io'
-		content {
-			includeGroup "com.github.KubeJS-Mods"
-			includeGroup "com.github.GabrielOlvH"
-			/* For Magna */
-			includeGroup "com.github.Draylar"
-			includeGroup "com.github.Draylar.omega-config"
-		}
-	}
-	// to build indrev
-	maven {
-		name = "CottonMC"
-		url = "https://server.bbkr.space/artifactory/libs-release"
-		content {
-			includeGroup "io.github.cottonmc"
-		}
-	}
-	maven {
-		name = "dblsaiko"
-		url = "https://maven.dblsaiko.net/"
-	}
-	maven {
-		name = "Technici4n"
-		url = "https://raw.githubusercontent.com/Technici4n/Technici4n-maven/master/"
-		content {
-			includeGroup "net.fabricmc.fabric-api"
-			includeGroup "dev.technici4n"
-			includeGroup "dev.latvian.mods"
-		}
-	}
-	maven {
 		url "https://maven.saps.dev/minecraft"
 		content {
 			includeGroup "dev.latvian.mods"
@@ -143,12 +99,6 @@ repositories {
 			includeGroupByRegex 'io\\.github\\.onyxstudios.*'
 		}
 	}
-	maven {
-		url "https://maven.parchmentmc.net/"
-		content {
-			includeGroup "org.parchmentmc.data"
-		}
-	}
 	mavenLocal()
 }
 
@@ -164,6 +114,18 @@ dependencies {
 	// SocketWrench
 	modImplementation "com.stuintech:SocketWrench:${project.socketwrench_version}"
 	include "com.stuintech:SocketWrench:${project.socketwrench_version}"
+
+	// Immersive Portals
+	modImplementation ("com.github.qouteall.ImmersivePortalsMod:imm_ptl_core:${project.imm_portals_version}"){
+		exclude(group: "net.fabricmc.fabric-api")
+		transitive(false)
+	}
+
+	// Miscellaneous Utility Library from qouteall
+	modImplementation ("com.github.qouteall.ImmersivePortalsMod:q_misc_util:${project.imm_portals_version}"){
+		exclude(group: "net.fabricmc.fabric-api")
+		transitive(false)
+	}
 
 	// Applied Energistics 2
 	modImplementation("appeng:appliedenergistics2-fabric:${project.appeng_version}") {
