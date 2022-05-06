@@ -11,8 +11,8 @@ repositories {
 
 dependencies {
     // SocketWrench
-	modImplementation "com.stuintech:SocketWrench:1.3.0+1.18.1"
-	include "com.stuintech:SocketWrench:1.3.0+1.18.1"
+	modImplementation "com.stuintech:SocketWrench:1.4.0+1.18.2"
+	include "com.stuintech:SocketWrench:1.4.0+1.18.2"
 }
 ```
 
