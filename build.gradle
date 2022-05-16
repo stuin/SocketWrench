@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -45,7 +45,7 @@ repositories {
 	}
 	// for ARRP
 	maven {
-		url = 'https://raw.githubusercontent.com/Devan-Kerman/Devan-Repo/master/'
+		url = "https://storage.googleapis.com/devan-maven/"
 		content {
 			includeGroup "net.devtech"
 		}
@@ -116,7 +116,7 @@ dependencies {
 	include "com.stuintech:SocketWrench:${project.socketwrench_version}"
 
 	// Immersive Portals
-	modImplementation ("com.github.qouteall.ImmersivePortalsMod:imm_ptl_core:${project.imm_portals_version}"){
+	/*modImplementation ("com.github.qouteall.ImmersivePortalsMod:imm_ptl_core:${project.imm_portals_version}"){
 		exclude(group: "net.fabricmc.fabric-api")
 		transitive(false)
 	}
@@ -125,7 +125,7 @@ dependencies {
 	modImplementation ("com.github.qouteall.ImmersivePortalsMod:q_misc_util:${project.imm_portals_version}"){
 		exclude(group: "net.fabricmc.fabric-api")
 		transitive(false)
-	}
+	}*/
 
 	// Applied Energistics 2
 	modImplementation("appeng:appliedenergistics2-fabric:${project.appeng_version}") {
