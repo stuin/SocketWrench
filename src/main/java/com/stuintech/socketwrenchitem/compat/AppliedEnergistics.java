@@ -1,6 +1,6 @@
 package com.stuintech.socketwrenchitem.compat;
 
-import appeng.blockentity.AEBaseBlockEntity;
+//import appeng.blockentity.AEBaseBlockEntity;
 import com.stuintech.socketwrench.socket.Socket;
 import com.stuintech.socketwrench.socket.SocketSetLoader;
 import com.stuintech.socketwrench.socket.SocketSetManager;
@@ -15,14 +15,14 @@ public class AppliedEnergistics extends Socket.BlockActionSocket implements Sock
 
     @Override
     public boolean onFasten(PlayerEntity player, World world, BlockPos pos, Vec3d vec3d, Direction direction) {
-        if(world.getBlockEntity(pos) instanceof AEBaseBlockEntity baseBlockEntity) {
+        /*if(world.getBlockEntity(pos) instanceof AEBaseBlockEntity baseBlockEntity) {
             BlockHitResult hitResult = new BlockHitResult(vec3d, direction, pos, false);
             if(player.isSneaking())
                 baseBlockEntity.disassembleWithWrench(player, world, hitResult);
             else
                 baseBlockEntity.rotateWithWrench(player, world, hitResult);
             return true;
-        }
+        }*/
 
         return false;
     }

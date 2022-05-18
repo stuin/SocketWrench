@@ -38,8 +38,12 @@ public class SocketWrenchItem implements ModInitializer {
                     "Modern Industrializaion",
                     "aztech.modern_industrialization.api.WrenchableBlockEntity",
                     "com.stuintech.socketwrenchitem.compat.ModernIndustrialization"
+            },
+            {
+                    "Immersive Portals",
+                    "qouteall.imm_ptl.core.commands.PortalCommand",
+                    "com.stuintech.socketwrenchitem.immersiveportals.ImmersivePortals"
             }
-
     };
 
     @Override

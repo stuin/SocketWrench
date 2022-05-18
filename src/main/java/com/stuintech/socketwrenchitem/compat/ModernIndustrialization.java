@@ -1,6 +1,6 @@
 package com.stuintech.socketwrenchitem.compat;
 
-import aztech.modern_industrialization.api.WrenchableBlockEntity;
+//import aztech.modern_industrialization.api.WrenchableBlockEntity;
 import com.stuintech.socketwrench.socket.Socket;
 import com.stuintech.socketwrench.socket.SocketSetLoader;
 import com.stuintech.socketwrench.socket.SocketSetManager;
@@ -15,8 +15,8 @@ public class ModernIndustrialization extends Socket.BlockActionSocket implements
 
     @Override
     public boolean onFasten(PlayerEntity player, World world, BlockPos pos, Vec3d vec3d, Direction direction) {
-        if(player.isSneaking() && world.getBlockEntity(pos) instanceof WrenchableBlockEntity wrenchBlockEntity)
-            return wrenchBlockEntity.useWrench(player, player.getActiveHand(), new BlockHitResult(vec3d, direction, pos, false));
+        //if(player.isSneaking() && world.getBlockEntity(pos) instanceof WrenchableBlockEntity wrenchBlockEntity)
+        //    return wrenchBlockEntity.useWrench(player, player.getActiveHand(), new BlockHitResult(vec3d, direction, pos, false));
 
         return false;
     }
