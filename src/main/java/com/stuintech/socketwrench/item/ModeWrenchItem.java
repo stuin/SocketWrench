@@ -6,7 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -112,8 +112,8 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
     }
 
     //Get display name for current mode
-    public TranslatableText getModeName(ItemStack stack) {
+    public TranslatableTextContent getModeName(ItemStack stack) {
         Identifier socketSet = getSocketSet(stack);
-        return new TranslatableText("mode." + socketSet.getNamespace() + "." + socketSet.getPath());
+        return new TranslatableTextContent("mode." + socketSet.getNamespace() + "." + socketSet.getPath());
     }
 }
