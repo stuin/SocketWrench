@@ -6,6 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,6 +16,7 @@ public class SocketWrenchItem implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("SocketWrench");
 
     public static final Item.Settings SETTINGS = new Item.Settings().maxCount(1).group(ItemGroup.TOOLS);
+    public static final Item.Settings CREATIVE_SETTINGS = new Item.Settings().maxCount(1).group(ItemGroup.TOOLS).rarity(Rarity.EPIC);
     public static final BasicWrenchItem wrenchItem = new BasicWrenchItem(SETTINGS);
 
     //Mod integration

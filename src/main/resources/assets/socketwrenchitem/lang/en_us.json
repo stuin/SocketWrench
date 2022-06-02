@@ -4,7 +4,7 @@
     "mode.socketwrenchitem.portal.position": "Position Mode",
     "mode.socketwrenchitem.portal.position.hint": "Push portal away from player",
     "mode.socketwrenchitem.portal.horizontal": "Horizontal Rotation Mode",
-    "mode.socketwrenchitem.portal.horizontal.hint": "Rotate nearest portal around Y axis",
+    "mode.socketwrenchitem.portal.horizontal.hint": "Rotate portal around Y axis",
     "mode.socketwrenchitem.portal.vertical": "Vertical Rotation Mode",
-    "mode.socketwrenchitem.portal.vertical.hint": "Rotate nearest portal around facing direction"
+    "mode.socketwrenchitem.portal.vertical.hint": "Rotate top of portal away from player"
 }

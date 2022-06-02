@@ -128,9 +128,9 @@ dependencies {
 	}
 
 	// Applied Energistics 2
-	/*modImplementation("appeng:appliedenergistics2-fabric:${project.appeng_version}") {
+	modImplementation("appeng:appliedenergistics2-fabric:${project.appeng_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
-	}*/
+	}
 
 	// Reborn Core
 	modImplementation("RebornCore:RebornCore-1.18:${project.reborncore_version}") {
@@ -143,9 +143,9 @@ dependencies {
 	}
 
 	// Modern Industrialization
-	/*modImplementation("aztech:Modern-Industrialization:${project.modernin_version}") {
+	modImplementation("aztech:Modern-Industrialization:${project.modernin_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
-	}*/
+	}
 }
 
 processResources {

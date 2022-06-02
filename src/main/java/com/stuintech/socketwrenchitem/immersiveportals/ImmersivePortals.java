@@ -15,11 +15,13 @@ public class ImmersivePortals implements SocketSetLoader {
     public static final Identifier VERTICAL_MODE = new Identifier(SocketWrenchItem.MODID, "portal.vertical");
     public static final ArrayList<Identifier> PORTAL_MODES = new ArrayList<>();
 
-    public static final ModeWrenchItem portalToolItem = new PortalTool(SocketWrenchItem.SETTINGS, PORTAL_MODES);
+    public static final ModeWrenchItem portalToolItem = new PortalTool(SocketWrenchItem.CREATIVE_SETTINGS, PORTAL_MODES);
 
     @Override
     public void registerSockets() {
         SocketSetManager.addSocket(new PositionSocket(), POSITION_MODE);
+        SocketSetManager.addSocket(new HorizontalRotationSocket(), HORIZONTAL_MODE);
+        SocketSetManager.addSocket(new VerticalRotationSocket(), VERTICAL_MODE);
 
         Registry.register(Registry.ITEM, new Identifier(SocketWrenchItem.MODID, "portal_tool"), portalToolItem);
     }
