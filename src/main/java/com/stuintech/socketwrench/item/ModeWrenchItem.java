@@ -1,11 +1,13 @@
 package com.stuintech.socketwrench.item;
 
+import com.stuintech.socketwrench.SocketWrench;
 import com.stuintech.socketwrench.socket.SocketSetManager;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -69,17 +71,31 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
         return ActionResult.FAIL;
     }
 
+    public boolean hasDurability(PlayerEntity player, ItemStack stack) {
+        return player.world.getGameRules().getBoolean(SocketWrench.SOCKET_WRENCH_DURABILITY);
+    }
+
+    public void playFastenSound(PlayerEntity player, ItemStack stack) {
+
+    }
+
     @Override
     public boolean shouldCancelInteraction(ItemStack item) {
         return true;
     }
 
     public void postFasten(ItemStack stack, PlayerEntity player) {
-
+        if(hasDurability(player, stack)) {
+            stack.damage(1, player, (p) -> {
+                p.sendToolBreakStatus(player.getActiveHand());
+            });
+        }
+        playFastenSound(player, stack);
+        player.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
     public void onModeChange(ItemStack stack, PlayerEntity player, int mode) {
-
+        playFastenSound(player, stack);
     }
 
     public Identifier getSocketSet(ItemStack stack) {
