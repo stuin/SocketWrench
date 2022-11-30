@@ -18,6 +18,7 @@ public class SocketWrench implements ModInitializer {
     public static final String MODID = "socketwrench";
 
     public static GameRules.Key<GameRules.BooleanRule> SOCKET_WRENCH_DURABILITY;
+    public static final int DEFAULT_WRENCH_DURABILITY = 250;
 
     @Override
     public void onInitialize() {
@@ -31,9 +32,12 @@ public class SocketWrench implements ModInitializer {
         SOCKET_WRENCH_DURABILITY = GameRuleRegistry.register("socketWrenchDurability",
                 GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
 
-        //Check for additional entrypoints
+        //Check for SocketWrench related entrypoints
         List<SocketSetLoader> entries = FabricLoader.getInstance().getEntrypoints(MODID, SocketSetLoader.class);
         for(SocketSetLoader loader : entries)
             loader.registerSockets();
+
+        //Register default wrench sound
+        ModSounds.register();
     }
 }

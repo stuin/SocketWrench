@@ -1,5 +1,6 @@
 package com.stuintech.socketwrench.item;
 
+import com.stuintech.socketwrench.ModSounds;
 import com.stuintech.socketwrench.SocketWrench;
 import com.stuintech.socketwrench.socket.SocketSetManager;
 import net.minecraft.entity.LivingEntity;
@@ -55,7 +56,8 @@ public class BasicWrenchItem extends Item implements CancelBlockInteraction {
     }
 
     public void playFastenSound(PlayerEntity player, ItemStack stack) {
-
+        if(!player.world.isClient)
+            player.playSound(ModSounds.wrenchSound, SoundCategory.PLAYERS, 0.6f, 1.0f);
     }
 
     @Override
