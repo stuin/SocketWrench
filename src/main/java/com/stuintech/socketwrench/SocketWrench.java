@@ -18,7 +18,7 @@ public class SocketWrench implements ModInitializer {
     public static final String MODID = "socketwrench";
 
     public static GameRules.Key<GameRules.BooleanRule> SOCKET_WRENCH_DURABILITY;
-    public static final int DEFAULT_WRENCH_DURABILITY = 250;
+    public static final int DEFAULT_WRENCH_DURABILITY = 300;
 
     @Override
     public void onInitialize() {
