@@ -5,8 +5,8 @@ import com.stuintech.socketwrench.socket.SocketSetManager;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -40,8 +40,8 @@ public class PortalTool extends ModeWrenchItem {
     }
 
     public void appendTooltip(ItemStack stack, World world, List<Text> list, TooltipContext tooltipContext) {
-        list.add(getModeName(stack).formatted(Formatting.GRAY));
-        TranslatableText text = new TranslatableText(getModeName(stack).getKey() + ".hint");
+        list.add(Text.translatable(getModeName(stack).getKey()).formatted(Formatting.GRAY));
+        MutableText text = Text.translatable(getModeName(stack).getKey() + ".hint");
         list.add(text.formatted(Formatting.GRAY));
     }
 }

@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -15,7 +15,7 @@ repositories {
 		url "https://github.com/stuin/SocketWrench/raw/maven2"
 	}
 
-	//Industrial Revolution
+	// for Industrial Revolution
 	maven {
 		name = "Cafeteria Development"
 		url = 'https://maven.cafeteria.dev/releases'
@@ -36,11 +36,11 @@ repositories {
 			includeGroup "com.github.emilyploszaj"
 			includeGroup "com.github.KubeJS-Mods"
 			includeGroup "com.github.GabrielOlvH"
-			/* For Magna */
-			includeGroup "com.github.Draylar"
-			includeGroup "com.github.Draylar.omega-config"
 			// for Immersive Portals
 			includeGroup "com.github.qouteall.ImmersivePortalsMod"
+			// for Create
+			includeGroup "com.github.AlphaMode"
+			includeGroup "com.github.Chocohead"
 		}
 	}
 	// for ARRP
@@ -58,7 +58,7 @@ repositories {
 	maven {
 		url 'https://bai.jfrog.io/artifactory/maven'
 	}
-	// for AE2
+	// for AE2+TechReborn
 	maven {
 		name "Modmaven"
 		url "https://modmaven.dev"
@@ -99,6 +99,15 @@ repositories {
 			includeGroupByRegex 'io\\.github\\.onyxstudios.*'
 		}
 	}
+	// for Create
+	maven {
+		url = "https://mvn.devos.one/snapshots/"
+	}
+	maven { url = "https://api.modrinth.com/maven" }
+	maven { url = "https://cursemaven.com" }
+	maven { url = "https://maven.parchmentmc.org" }
+	maven { url = "https://maven.tterrag.com/" }
+	maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
 	mavenLocal()
 }
 
@@ -116,15 +125,20 @@ dependencies {
 	include "com.stuintech:SocketWrench:${project.socketwrench_version}"
 
 	// Immersive Portals
-	modImplementation ("com.github.qouteall.ImmersivePortalsMod:imm_ptl_core:${project.imm_portals_version}"){
+	modImplementation("com.github.qouteall.ImmersivePortalsMod:imm_ptl_core:${project.imm_portals_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 		transitive(false)
 	}
 
 	// Miscellaneous Utility Library from qouteall
-	modImplementation ("com.github.qouteall.ImmersivePortalsMod:q_misc_util:${project.imm_portals_version}"){
+	modImplementation("com.github.qouteall.ImmersivePortalsMod:q_misc_util:${project.imm_portals_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 		transitive(false)
+	}
+
+	//Create
+	modImplementation("com.simibubi.create:create-fabric-1.19.2:${project.create_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
 	}
 
 	// Applied Energistics 2
@@ -133,19 +147,19 @@ dependencies {
 	}
 
 	// Reborn Core
-	modImplementation("RebornCore:RebornCore-1.18:${project.reborncore_version}") {
+	modImplementation("TechReborn:TechReborn-1.19:${project.techreborn_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
 	// Industrial Revolution
-	modImplementation("me.steven:Industrial-Revolution:${project.indrev_version}") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
+	//modImplementation("me.steven:Industrial-Revolution:${project.indrev_version}") {
+	//	exclude(group: "net.fabricmc.fabric-api")
+	//}
 
 	// Modern Industrialization
-	modImplementation("aztech:Modern-Industrialization:${project.modernin_version}") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
+	//modImplementation("aztech:Modern-Industrialization:${project.modernin_version}") {
+	//	exclude(group: "net.fabricmc.fabric-api")
+	//}
 }
 
 processResources {

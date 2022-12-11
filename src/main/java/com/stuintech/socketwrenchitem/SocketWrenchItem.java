@@ -1,5 +1,6 @@
 package com.stuintech.socketwrenchitem;
 
+import com.stuintech.socketwrench.SocketWrench;
 import com.stuintech.socketwrench.item.BasicWrenchItem;
 import com.stuintech.socketwrench.socket.SocketSetLoader;
 import net.fabricmc.api.ModInitializer;
@@ -15,26 +16,33 @@ public class SocketWrenchItem implements ModInitializer {
     public static final String MODID = "socketwrenchitem";
     public static final Logger LOGGER = LogManager.getLogger("SocketWrench");
 
-    public static final Item.Settings SETTINGS = new Item.Settings().maxCount(1).group(ItemGroup.TOOLS);
-    public static final Item.Settings CREATIVE_SETTINGS = new Item.Settings().maxCount(1).group(ItemGroup.TOOLS).rarity(Rarity.EPIC);
+    public static final Item.Settings SETTINGS = new Item.Settings().maxCount(1)
+            .group(ItemGroup.TOOLS).maxDamage(SocketWrench.DEFAULT_WRENCH_DURABILITY);
+    public static final Item.Settings CREATIVE_SETTINGS = new Item.Settings().maxCount(1)
+            .group(ItemGroup.TOOLS).rarity(Rarity.EPIC);
     public static final BasicWrenchItem wrenchItem = new BasicWrenchItem(SETTINGS);
 
     //Mod integration
     private static final String[][] loadExtensions = new String[][] {
             {
-                    "Industrial Revolution",
-                    "me.steven.indrev.blocks.machine.MachineBlock",
-                    "com.stuintech.socketwrenchitem.compat.IndustrialRevolution"
-            },
-            {
-                    "Reborn Core",
-                    "reborncore.api.IToolDrop",
-                    "com.stuintech.socketwrenchitem.compat.RebornCore"
-            },
-            {
                     "Applied Energistics 2",
                     "appeng.blockentity.AEBaseBlockEntity",
                     "com.stuintech.socketwrenchitem.compat.AppliedEnergistics"
+            },
+            {
+                    "Create",
+                    "com.simibubi.create.content.contraptions.wrench.IWrenchable",
+                    "com.stuintech.socketwrenchitem.compat.Create"
+            },
+            {
+                    "Immersive Portals",
+                    "qouteall.imm_ptl.core.commands.PortalCommand",
+                    "com.stuintech.socketwrenchitem.immersiveportals.ImmersivePortals"
+            },
+            {
+                    "Industrial Revolution",
+                    "me.steven.indrev.blocks.machine.MachineBlock",
+                    "com.stuintech.socketwrenchitem.compat.IndustrialRevolution"
             },
             {
                     "Modern Industrializaion",
@@ -42,9 +50,9 @@ public class SocketWrenchItem implements ModInitializer {
                     "com.stuintech.socketwrenchitem.compat.ModernIndustrialization"
             },
             {
-                    "Immersive Portals",
-                    "qouteall.imm_ptl.core.commands.PortalCommand",
-                    "com.stuintech.socketwrenchitem.immersiveportals.ImmersivePortals"
+                    "Reborn Core",
+                    "reborncore.api.IToolDrop",
+                    "com.stuintech.socketwrenchitem.compat.RebornCore"
             }
     };
 
