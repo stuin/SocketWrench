@@ -3,5 +3,10 @@
     "sounds": [
       "socketwrench:default_wrench"
     ]
+  },
+  "default_mode_change": {
+    "sounds": [
+      "socketwrench:default_mode_change"
+    ]
   }
 }

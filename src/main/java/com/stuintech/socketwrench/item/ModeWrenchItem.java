@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -82,6 +83,11 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
             player.playSound(ModSounds.wrenchSound, SoundCategory.PLAYERS, 0.6f, 1.0f);
     }
 
+    public void playModeChangeSound(PlayerEntity player, ItemStack stack) {
+        if(!player.world.isClient)
+            player.playSound(ModSounds.modeSound, SoundCategory.PLAYERS, 0.6f, 1.0f);
+    }
+
     @Override
     public boolean shouldCancelInteraction(ItemStack item) {
         return true;
@@ -98,7 +104,7 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
     }
 
     public void onModeChange(ItemStack stack, PlayerEntity player, int mode) {
-        playFastenSound(player, stack);
+        playModeChangeSound(player, stack);
     }
 
     public Identifier getSocketSet(ItemStack stack) {
@@ -131,8 +137,8 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
     }
 
     //Get display name for current mode
-    public TranslatableTextContent getModeName(ItemStack stack) {
+    public String getModeKey(ItemStack stack) {
         Identifier socketSet = getSocketSet(stack);
-        return new TranslatableTextContent("mode." + socketSet.getNamespace() + "." + socketSet.getPath());
+        return "mode." + socketSet.getNamespace() + "." + socketSet.getPath();
     }
 }
