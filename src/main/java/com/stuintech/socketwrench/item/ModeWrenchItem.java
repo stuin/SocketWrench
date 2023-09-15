@@ -10,8 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -75,16 +73,16 @@ public class ModeWrenchItem extends Item implements CancelBlockInteraction {
     }
 
     public boolean hasDurability(PlayerEntity player, ItemStack stack) {
-        return player.world.getGameRules().getBoolean(SocketWrench.SOCKET_WRENCH_DURABILITY);
+        return player.getWorld().getGameRules().getBoolean(SocketWrench.SOCKET_WRENCH_DURABILITY);
     }
 
     public void playFastenSound(PlayerEntity player, ItemStack stack) {
-        if(!player.world.isClient)
+        if(!player.getWorld().isClient)
             player.playSound(ModSounds.wrenchSound, SoundCategory.PLAYERS, 0.6f, 1.0f);
     }
 
     public void playModeChangeSound(PlayerEntity player, ItemStack stack) {
-        if(!player.world.isClient)
+        if(!player.getWorld().isClient)
             player.playSound(ModSounds.modeSound, SoundCategory.PLAYERS, 0.6f, 1.0f);
     }
 
